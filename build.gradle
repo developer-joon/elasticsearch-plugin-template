@@ -1,0 +1,58 @@
+/*
+ * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+ * or more contributor license agreements. Licensed under the Elastic License
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
+ */
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+compileTestJava {
+    options.encoding = "UTF-8"
+}
+
+group = 'com.devjoon.plugin'
+version = '0.0.1-SNAPSHOT'
+description = 'elasticsearch plugins template'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '8.1.2'
+    runtimeOnly group: 'org.elasticsearch', name: 'elasticsearch-plugin-classloader', version: '8.1.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task copyDocs(type: Copy) {
+    from 'src/main'
+    into 'build/libs'
+}
+
+
+tasks.named('build') {
+    doLast {
+        println 'Hello JoonWoo'
+    }
+}
