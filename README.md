@@ -16,7 +16,7 @@
       -Des.logs.base_path=<경로>/elasticsearch/logs   
    2. 실행 클래스를 입력합니다.
       1. org.elasticsearch.bootstrap.Elasticsearch
-6. 다운로드받은 elasticsearch/jdk/conf/security/java.policy 파일에 아래 내용을 추가합니다.
+6. 다운로드받은 elasticsearch/jdk/conf/security/java.policy 파일에 아래 내용을 추가합니다.   
    permission javax.management.MBeanTrustPermission "register";   
    permission javax.management.MBeanServerPermission "createMBeanServer";   
    permission java.lang.RuntimePermission "getClassLoader";   
