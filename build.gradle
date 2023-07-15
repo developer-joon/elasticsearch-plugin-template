@@ -20,6 +20,8 @@ plugins {
 compileJava {
     options.encoding = "UTF-8"
 }
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 compileTestJava {
     options.encoding = "UTF-8"
@@ -35,24 +37,46 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '8.1.2'
-    runtimeOnly group: 'org.elasticsearch', name: 'elasticsearch-plugin-classloader', version: '8.1.2'
+    implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '7.10.2'
+//    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.20.0'
+    implementation group: "org.apache.logging.log4j", name: "log4j-core", version: "2.11.1"
+    implementation group: 'org.codelibs.elasticsearch.lib', name: 'plugin-classloader', version: '7.10.2'
+//    runtimeOnly group: 'org.elasticsearch', name: 'elasticsearch-plugin-classloader', version: '7.10.2'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.2'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
 }
+
 
 test {
     useJUnitPlatform()
 }
 
-task copyDocs(type: Copy) {
-    from 'src/main'
-    into 'build/libs'
+task copyToDependencies(type: Copy) {
+    from("src/main/resources") {
+        include "*.properties"
+        include "*.policy"
+        include "*.yml"
+    }
+    into "${buildDir}/libs"
 }
 
+task copyJars(type: Copy) {
+    dependsOn(jar)
+    dependsOn(copyToDependencies)
+    from(configurations.runtimeClasspath) {
+        include "*.jar"
+    }
+    from(jar.archivePath) {
+        include "*.jar"
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    into "${buildDir}/jars"
+}
+build.dependsOn(copyToDependencies, copyJars)
 
 tasks.named('build') {
     doLast {
-        println 'Hello JoonWoo'
+        println "Elasticsearch Plugin Template Build Success!"
     }
 }
+
