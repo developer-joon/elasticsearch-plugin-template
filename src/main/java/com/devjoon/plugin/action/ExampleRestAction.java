@@ -7,6 +7,7 @@ import org.elasticsearch.rest.RestRequest;
 import org.elasticsearch.rest.RestStatus;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import static org.elasticsearch.rest.RestRequest.Method.GET;
@@ -20,13 +21,14 @@ public class ExampleRestAction extends BaseRestHandler {
 
     @Override
     public List<Route> routes() {
-        return List.of(
+        return Collections.singletonList(
                 new Route(GET, "/devjoon/_example")
         );
     }
 
     @Override
     protected RestChannelConsumer prepareRequest(RestRequest request, NodeClient client) throws IOException {
-        return channel -> channel.sendResponse(new BytesRestResponse(RestStatus.OK, "Example Action"));
+        return channel -> channel.sendResponse(new BytesRestResponse(RestStatus.OK, "Example Action2"));
     }
 }
+

@@ -1,0 +1,15 @@
+
+F
+java:S2629-"$Invoke method(s) only conditionally.(á§»’øÿÿÿÿ8¦¢Çí•1
+R
+java:S2387"5"logger" is the name of a field in "BaseRestHandler".(¥×Ñ8¬¢Çí•1
+[
+java:S1854+">Remove this useless assignment to local variable "isSynonyms".(©¯µ÷8¯¢Çí•1
+L
+java:S1481+"/Remove this unused "isSynonyms" local variable.(©¯µ÷8°¢Çí•1
+ƒ
+java:S3457-"aNo need to call "toString()" method as formatting and string conversion is done by the Formatter.(á§»’øÿÿÿÿ8°¢Çí•1
+H
+java:S1481/"+Remove this unused "action" local variable.(¶»¬Ô8±¢Çí•1
+]	java:S125H"<This block of commented-out lines of code should be removed.(¬Çèçÿÿÿÿÿ8¸¢Çí•1
+X	java:S125p"<This block of commented-out lines of code should be removed.(¢µÄÌ8¸¢Çí•1

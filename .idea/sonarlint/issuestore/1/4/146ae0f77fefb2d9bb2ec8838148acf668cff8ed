@@ -1,0 +1,23 @@
+
+L
+java:S1066B"/Merge this if statement with the enclosing one.(†ÀÆ8ŠÉĞî•1
+M
+java:S1066Ò"/Merge this if statement with the enclosing one.(éÒÖé8‹ÉĞî•1
+M
+java:S1066à"/Merge this if statement with the enclosing one.(‰ìä»8‹ÉĞî•1
+M
+java:S1066î"/Merge this if statement with the enclosing one.(€‹ò8‹ÉĞî•1
+p
+java:S3776"SRefactor this method to reduce its Cognitive Complexity from 131 to the 15 allowed.(¤‘8•ÉĞî•1
+H
+java:S1905t"&Remove this unnecessary cast to "int".(ãî‘úúÿÿÿÿ8œÉĞî•1
+C
+java:S1905x"&Remove this unnecessary cast to "int".(öåå8œÉĞî•1
+f
+java:S5361Ó"HReplace this call to "replaceAll()" by a call to the "replace()" method.(½Š‘›8 ÉĞî•1
+e
+java:S5361á"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ËëD8¡ÉĞî•1
+f
+java:S5361ï"HReplace this call to "replaceAll()" by a call to the "replace()" method.(™Û¢8¢ÉĞî•1
+ä
+java:S6541"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 187 to 64, Complexity from 58 to 14, Nesting Level from 6 to 2, Number of Variables from 21 to 6.(¤‘8¥ÉĞî•1

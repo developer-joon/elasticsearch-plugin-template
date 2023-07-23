@@ -37,42 +37,49 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '7.10.2'
-//    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.20.0'
-    implementation group: "org.apache.logging.log4j", name: "log4j-core", version: "2.11.1"
-    implementation group: 'org.codelibs.elasticsearch.lib', name: 'plugin-classloader', version: '7.10.2'
-//    runtimeOnly group: 'org.elasticsearch', name: 'elasticsearch-plugin-classloader', version: '7.10.2'
+    implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '7.17.11'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.20.0'
+//    implementation group: "org.apache.logging.log4j", name: "log4j-core", version: "2.11.1"
+//    implementation group: 'org.codelibs.elasticsearch.lib', name: 'plugin-classloader', version: '7.17.11'
+    implementation group: 'org.elasticsearch', name: 'elasticsearch-plugin-classloader', version: '7.17.11'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.2'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
-}
+    implementation group: 'org.json', name: 'json', version: '20230618'
 
+}
 
 test {
     useJUnitPlatform()
 }
 
-task copyToDependencies(type: Copy) {
+tasks.register('copyToDependencies', Copy) {
     from("src/main/resources") {
         include "*.properties"
         include "*.policy"
         include "*.yml"
     }
-    into "${buildDir}/libs"
+    into "${buildDir}/libs/${rootProject.name}"
 }
 
-task copyJars(type: Copy) {
+tasks.register('copyJars', Copy) {
     dependsOn(jar)
     dependsOn(copyToDependencies)
-    from(configurations.runtimeClasspath) {
-        include "*.jar"
-    }
     from(jar.archivePath) {
         include "*.jar"
     }
+    from("src/main/resources") {
+        include "*.properties"
+        include "*.policy"
+        include "*.yml"
+    }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    into "${buildDir}/jars"
+//    into "${System.properties['es.path.home']}/plugins/${rootProject.name}/"
+    into "/Users/joonwookim/Projects/elasticsearch-relases/elasticsearch-7.17.11/plugins/${rootProject.name}"
 }
-build.dependsOn(copyToDependencies, copyJars)
+
+//build.dependsOn(copyToDependencies, copyJars)
+
+build.dependsOn(copyJars)
 
 tasks.named('build') {
     doLast {

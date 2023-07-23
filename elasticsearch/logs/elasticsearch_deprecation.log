@@ -1,0 +1,2 @@
+[2023-07-23T16:33:09,899][WARN ][o.e.d.n.Node             ] [] [] no-jdk distributions that do not bundle a JDK are deprecated and will be removed in a future release
+[2023-07-23T16:33:56,958][WARN ][o.e.d.n.Node             ] [] [] no-jdk distributions that do not bundle a JDK are deprecated and will be removed in a future release

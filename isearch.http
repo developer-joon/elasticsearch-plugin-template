@@ -1,0 +1,15 @@
+### isearch
+POST http://localhost:9200/_isearch
+Content-Type: application/json
+
+{
+  "query": {
+    "bool": {
+      "must": [],
+      "must_not": [],
+      "should": []
+    }
+  },
+  "size": 30,
+  "from": 0
+}

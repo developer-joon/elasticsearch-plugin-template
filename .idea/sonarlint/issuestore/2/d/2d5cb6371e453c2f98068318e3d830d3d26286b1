@@ -1,0 +1,11 @@
+
+Q
+java:S1121‚".Extract the assignment out of this expression.(Í»Ãúúÿÿÿÿ8¼óÍî•1
+z	java:S135O"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8¼óÍî•1
+M
+java:S2160"+Override the "equals" method in this class.(÷ıŸıÿÿÿÿ8ÃÆÎî•1
+j
+java:S1659"HDeclare "bufferIndex" and all following declarations on a separate line.(§ÁÒôúÿÿÿÿ8ÁóÍî•1
+]	java:S1251"<This block of commented-out lines of code should be removed.(‹ĞÉˆşÿÿÿÿ8ÆóÍî•1
+t
+java:S3776I"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(şˆàĞÿÿÿÿÿ8ÉóÍî•1

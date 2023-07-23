@@ -1,4 +1,4 @@
-package com.devjoon.plugin;
+package com.devjoon.plugin.plugin;
 
 import com.devjoon.plugin.action.ExampleRestAction;
 import org.elasticsearch.cluster.metadata.IndexNameExpressionResolver;
@@ -12,6 +12,7 @@ import org.elasticsearch.plugins.Plugin;
 import org.elasticsearch.rest.RestController;
 import org.elasticsearch.rest.RestHandler;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -20,7 +21,7 @@ public class ExampleRestPlugin extends Plugin implements ActionPlugin {
 
     @Override
     public List<RestHandler> getRestHandlers(Settings settings, RestController restController, ClusterSettings clusterSettings, IndexScopedSettings indexScopedSettings, SettingsFilter settingsFilter, IndexNameExpressionResolver indexNameExpressionResolver, Supplier<DiscoveryNodes> nodesInCluster) {
-        return List.of(new ExampleRestAction());
+        return Collections.singletonList(new ExampleRestAction());
     }
 
 }
